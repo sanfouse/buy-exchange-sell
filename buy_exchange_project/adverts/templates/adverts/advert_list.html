@@ -1,0 +1,34 @@
+{% extends 'adverts/base.html' %}
+
+{% block content %}
+<div class="row">
+      {% for advert in advert_list  %}
+      <div class="col s12 m4">
+            <div class="card hoverable">
+                  <div class="card-image">
+                        <div class="slider">
+                              <ul class="slides">
+                                    {% for image in advert.image_set.all %}
+                                    <li>
+                                          <img src="{{ image.image.url }}">
+                                    </li>
+                                    {% endfor %}
+                              </ul>
+                        </div>
+                  </div>
+                  <h3 class="card-title center"><b>{{ advert.title }}</b></h3>
+                  <div class="card-action">
+                        <a href="/{{ advert.id }}/">Посмотреть</a>
+                  </div>
+            </div>
+      </div>
+      {% endfor %}
+</div>
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+            var slide = document.querySelectorAll('.slider');
+            M.Slider.init(slide);
+      });
+</script>
+           
+{% endblock %}

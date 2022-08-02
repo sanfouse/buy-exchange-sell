@@ -1,0 +1,42 @@
+{% extends 'adverts/base.html' %}
+
+{% block content %}
+<div class="card-panel grey lighten-5 z-depth-1">
+      <div class="row valign-wrapper">
+            <div class="product-detail">
+                  <div class="col s12 m6 l6">
+                        <div class="material-placeholder">
+                              <div class="slider">
+                                    <ul class="slides">
+                                          {% for image in advert.image_set.all %}
+                                          <li>
+                                                <img src="{{ image.image.url }}" alt="" class="materialboxed" width="400" height="400">
+                                          </li>
+                                          {% endfor %}
+                                    </ul>
+                              </div>
+                        </div>
+                              </div>
+                              <div class="col s12 m6 l6">
+                                    <h5>{{ advert.title }}</h5>
+                                    <span class="product-price">{{ advert.price }}</span> 
+                                    <p class="product-description">{{ advert.description }}</p>
+                        </div>    
+                  </div>
+            </div>  
+      </div>
+</div>
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+            var slide = document.querySelectorAll('.slider');
+            M.Slider.init(slide);
+      });
+</script>
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+            var matbox = document.querySelectorAll('.materialboxed');
+            M.Materialbox.init(matbox);
+  });
+</script>
+
+{% endblock %}
