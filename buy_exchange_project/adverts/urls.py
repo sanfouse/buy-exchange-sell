@@ -1,6 +1,7 @@
 from django.urls import path
-from . import views
 from django.views.generic import TemplateView
+
+from . import views
 from .models import Category
 
 urlpatterns = [
@@ -11,4 +12,5 @@ urlpatterns = [
                         extra_context={"categories": Category.objects.all()}           
                   )
             ),
+      path('add_item/check/', views.AdvertAddCheck.as_view())
 ]

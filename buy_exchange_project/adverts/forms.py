@@ -1,3 +1,17 @@
 from django import forms
+from .models import Advert
 
-from .models import 
+class AdvertForm(forms.ModelForm):
+      class Meta:
+            model = Advert
+            fields = ('title', 'price', 'description')
+
+
+
+
+
+
+
+
+
+
