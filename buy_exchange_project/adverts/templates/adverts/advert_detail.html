@@ -19,8 +19,16 @@
                               </div>
                               <div class="col s12 m6 l6">
                                     <h5>{{ advert.title }}</h5>
-                                    <span class="product-price">{{ advert.price }}</span> 
+                                    {% for category in category %}
+                                    <div class="chip">
+                                          {{ category.title }}
+                                    </div>
+                                    {% endfor %}
+                              </div>
+                              <div class="col s12 m6 l6">
+                                    <span class="product-price"><b>{{ advert.price }} ₽</b></span> 
                                     <p class="product-description">{{ advert.description }}</p>
+                              </div>
                         </div>    
                   </div>
             </div>  
