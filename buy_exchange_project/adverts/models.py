@@ -31,6 +31,6 @@ class Image(models.Model):
       advert = models.ForeignKey(Advert, verbose_name='Товар', on_delete=models.CASCADE)
       
       class Meta:
-            verbose_name = 'Картинка'
+            verbose_name = 'Картинку'
             verbose_name_plural = 'Картинки'
       
