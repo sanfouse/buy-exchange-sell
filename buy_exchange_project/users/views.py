@@ -1,7 +1,7 @@
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.views import View
-
 from .forms import UserRegistrationForm
 
 
@@ -19,4 +19,6 @@ class RegisterView(View):
 class LoginView(LoginView):
       template_name = 'users/login.html'
 
-
+class LogOutView(LoginRequiredMixin, LogoutView):
+      pass
+      

@@ -33,24 +33,24 @@
       <li><div class="user-view">
         {% if user.is_authenticated %}
         <div class="background">
-          <img src="media/image/index.jpg">
+          <img src="media/image/ZLu7E1D0DH8.jpg">
         </div>
-        <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+        <!-- <a href="#user"><img class="circle" src="image/cloud.jpg"></a> -->
         <a href="#name"><span class="white-text name">{{ user.first_name }} {{ user.last_name }}</span></a>
         <a href="#email"><span class="white-text email">{{ user.email }}</span></a>
       </div></li>
+      <li><a href="add_item/"><i class="material-icons">shopping_cart</i>Добавить товар</a></li>
+      <li><a href="user/{{ user.id }}/"><i class="material-icons">folder</i>Мои товары</a></li>
       <li><div class="divider"></div></li>
+      <li><a class="subheader">Аккаунт</a></li>
+      <li><a class="waves-effect" href="user/log_out/"><i class="material-icons">exit_to_app</i>Выйти</a></li>
       {% else %}
-      <div class="background">
-        <img src="media/image/index.jpg">
-      </div>
-      <li><a href="#!"><i class="material-icons">cloud</i>Зарегистрироваться</a></li>
+      <li><a href="user/register/"><i class="material-icons">cloud</i>Зарегистрироваться</a></li>
+      <li><a href="user/login/"><i class="material-icons">exit_to_app</i>Войти</a></li>
       {% endif %}
     </ul>
     <div class="container">{% block content %}{% endblock %}</div>
-    {% if user.is_authenticated %}  
     <div class="fixed-action-btn direction-top"><a class="btn-floating btn-large waves-effect teal accent-4" href="add_item/"><i class="material-icons">shopping_cart</i></a></div>
-    {% endif %}
     <footer class="page-footer blue-grey">
       <div class="container">
         <div class="row">
