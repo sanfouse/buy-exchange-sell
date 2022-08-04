@@ -1,11 +1,11 @@
-from django.contrib.auth import authenticate, login
-from django.shortcuts import redirect
+from django.contrib.auth.views import LoginView
+from django.shortcuts import redirect, render
 from django.views import View
-from django.contrib.auth.views import LoginView  
-from .forms import LoginForm, UserRegistrationForm
+
+from .forms import UserRegistrationForm
 
 
-class RegisterCheck(View):
+class RegisterView(View):
       def post(self, request):
             user_form = UserRegistrationForm(request.POST)
             if user_form.is_valid():
@@ -13,7 +13,10 @@ class RegisterCheck(View):
                   new_user.set_password(user_form.cleaned_data['password'])
                   new_user.save()
             return redirect('/')
+      def get(self, request):
+            return render(request, 'users/register.html', {'form': UserRegistrationForm()})
 
 class LoginView(LoginView):
-      template_name = 'login.html'
+      template_name = 'users/login.html'
+
 

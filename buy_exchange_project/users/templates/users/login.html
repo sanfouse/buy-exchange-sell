@@ -1,8 +1,8 @@
-{% extends 'users/base.html' %}
+{% extends 'adverts/base.html' %}
 
 {% block content %}
  <body>
-  <form action="check/" method="POST">
+  <form action="" method="POST">
       {% csrf_token %} 
       {{ form.as_p }} 
     <input class="btn waves-effect waves-light" type="submit" name="sumbit">

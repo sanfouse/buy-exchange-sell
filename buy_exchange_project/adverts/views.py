@@ -1,4 +1,5 @@
-from django.shortcuts import redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect, render
 from django.views import View
 from django.views.generic import DetailView, ListView
 
@@ -9,11 +10,12 @@ from .models import Advert, Category, Image
 class AdvertList(ListView):
       model = Advert
 
+
 class AdvertDetail(DetailView):
       model = Advert
 
 
-class AdvertAddCheck(View):
+class AdvertAdd(LoginRequiredMixin, View):
       def post(self, request):
             form = AdvertForm(request.POST)
             if form.is_valid():
@@ -26,5 +28,8 @@ class AdvertAddCheck(View):
                   for image in request.FILES.getlist('image'):
                         Image.objects.create(image=image, advert=object)
             return redirect('/')
+
+      def get(self, request):
+            return render(request, 'adverts/advert_add.html', {'categories': Category.objects.all()})
             
             

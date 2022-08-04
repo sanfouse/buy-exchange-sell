@@ -16,6 +16,3 @@ class UserRegistrationForm(forms.ModelForm):
         return cd['password2']
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField()

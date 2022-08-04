@@ -1,8 +1,8 @@
-{% extends 'users/base.html' %}
+{% extends 'adverts/base.html' %}
 {% block content %}
     <h1><b>Регистрация</b></h1>
     <h5>Пожалуйста, заполните форму:</h5>
-    <form action="check/" method="post">
+    <form action="" method="post">
         {{ form.as_p }}
         {% csrf_token %}
         <p><input class="btn waves-effect waves-light" type="submit" value="Зарегистрироваться"></p>
