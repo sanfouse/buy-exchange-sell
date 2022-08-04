@@ -18,7 +18,7 @@
                   </div>
                   <h3 class="card-title center"><b>{{ advert.title }}</b></h3>
                   <div class="card-action">
-                        <a href="/{{ advert.id }}/">Посмотреть</a>
+                        <a href="{% url 'advert_detail' advert.id %}">Посмотреть</a>
                   </div>
             </div>
       </div>

@@ -18,7 +18,7 @@
     <nav>
       <div class="nav-wrapper blue-grey">
         <div class="container">
-          <a href="/" class="brand-logo"><i class="material-icons">shopping_cart</i>BuyExchange</a>
+          <a href="{% url 'advert_list' %}" class="brand-logo"><i class="material-icons">shopping_cart</i>BuyExchange</a>
           <a href="" class="sidenav-trigger show-on-large" data-target="slide_out"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li> <a href="index.html">Home </a></li>
@@ -39,18 +39,18 @@
         <a href="#name"><span class="white-text name">{{ user.first_name }} {{ user.last_name }}</span></a>
         <a href="#email"><span class="white-text email">{{ user.email }}</span></a>
       </div></li>
-      <li><a href="add_item/"><i class="material-icons">shopping_cart</i>Добавить товар</a></li>
-      <li><a href="user/"><i class="material-icons">folder</i>Мои товары</a></li>
+      <li><a href="{% url 'add_item' %}"><i class="material-icons">shopping_cart</i>Добавить товар</a></li>
+      <li><a href="{% url 'user' %}"><i class="material-icons">folder</i>Мои товары</a></li>
       <li><div class="divider"></div></li>
       <li><a class="subheader">Аккаунт</a></li>
-      <li><a class="waves-effect" href="user/log_out/"><i class="material-icons">exit_to_app</i>Выйти</a></li>
+      <li><a class="waves-effect" href="{% url 'log_out' %}"><i class="material-icons">exit_to_app</i>Выйти</a></li>
       {% else %}
-      <li><a href="user/register/"><i class="material-icons">cloud</i>Зарегистрироваться</a></li>
-      <li><a href="user/login/"><i class="material-icons">exit_to_app</i>Войти</a></li>
+      <li><a href="{% url 'register' %}"><i class="material-icons">cloud</i>Зарегистрироваться</a></li>
+      <li><a href="{% url 'login' %}"><i class="material-icons">exit_to_app</i>Войти</a></li>
       {% endif %}
     </ul>
     <div class="container">{% block content %}{% endblock %}</div>
-    <div class="fixed-action-btn direction-top"><a class="btn-floating btn-large waves-effect teal accent-4" href="add_item/"><i class="material-icons">shopping_cart</i></a></div>
+    <div class="fixed-action-btn direction-top"><a class="btn-floating btn-large waves-effect teal accent-4" href="{%url 'add_item'%}"><i class="material-icons">shopping_cart</i></a></div>
     <footer class="page-footer blue-grey">
       <div class="container">
         <div class="row">

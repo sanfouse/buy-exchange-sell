@@ -29,7 +29,5 @@ class LogOutView(LoginRequiredMixin, LogoutView):
       
 
 class UserAdvert(LoginRequiredMixin, ListView):
-      model = Advert
-
       def get_queryset(self):
             return Advert.objects.filter(user=self.request.user)
