@@ -14,13 +14,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
 
 <script>
-$(document).ready(function(){
-
-  // Initialize materialize data picker
-  $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
-  $('select').formSelect();
-
-});
 </script>
     <nav>
       <div class="nav-wrapper blue-grey">
@@ -35,13 +28,14 @@ $(document).ready(function(){
         </div>
       </div>  
     </nav>
+    <br>
     <ul class="sidenav" id="slide_out">
       <li> <a href="index.html">Home </a></li>
       <li> <a href="services.html">Services </a></li>
       <li> <a href="contact.html">Contact </a></li>
     </ul>
     <div class="container">{% block content %}{% endblock %}</div>  
-    <div class="fixed-action-btn direction-top"><a class="btn-floating btn-large waves-effect waves-light red" href="add_item/"><i class="material-icons">shopping_cart</i></a></div>
+    <div class="fixed-action-btn direction-top"><a class="btn-floating btn-large waves-effect teal accent-4" href="add_item/"><i class="material-icons">shopping_cart</i></a></div>
     <footer class="page-footer blue-grey">
       <div class="container">
         <div class="row">

@@ -11,10 +11,7 @@ class AdvertList(ListView):
 
 class AdvertDetail(DetailView):
       model = Advert
-      def get_context_data(self, **kwargs):
-            context = super().get_context_data(**kwargs)
-            context['category'] = Category.objects.all()
-            return context
+
 
 class AdvertAddCheck(View):
       def post(self, request):

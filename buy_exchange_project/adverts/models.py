@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Category(models.Model):
       title = models.CharField(verbose_name='Название', max_length=60)
@@ -17,6 +18,7 @@ class Advert(models.Model):
       category = models.ManyToManyField(Category, verbose_name='Категория', related_name='category')
       description = models.TextField(verbose_name='Описание')
       date = models.DateTimeField(verbose_name='Дата публикации', auto_now=True)
+      user = models.ForeignKey(User, on_delete=models.CASCADE)
 
       def __str__(self):
             return self.title
