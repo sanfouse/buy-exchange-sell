@@ -19,14 +19,11 @@
                               </div>
                               <div class="col s12 m6 l6">
                                     <h5>{{ advert.title }}</h5>
-                                    <!-- {% for category in category %}
+                                    {% for category in advert.category.all %}
                                     <div class="chip">
                                           {{ category.title }}
                                     </div>
-                                    {% endfor %} -->
-                                    <div class="chip">
-                                          {{ advert.user.username }}
-                                    </div>
+                                    {% endfor %}
                               </div>
                               <div class="col s12 m6 l6">
                                     <span class="product-price"><b>{{ advert.price }} ₽</b></span> 
@@ -35,7 +32,16 @@
                         </div>    
                   </div>
             </div>  
-      </div>
+      <ul class="collection">
+            <li class="collection-item avatar">
+                  <img src="{{ advert.user.userprofile.profile_image.url }}" alt="" class="circle">
+                  <span class="title">{{ advert.user.username }}</span>
+                  <p>{{ advert.user.first_name }} {{ advert.user.last_name }} <br>
+                  На сайте с: {{ advert.user.date_joined }}
+                  </p>
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+      </ul>
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function() {

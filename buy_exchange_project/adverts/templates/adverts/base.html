@@ -12,9 +12,6 @@
   crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
-
-<script>
-</script>
     <nav>
       <div class="nav-wrapper blue-grey">
         <div class="container">
@@ -33,11 +30,11 @@
       <li><div class="user-view">
         {% if user.is_authenticated %}
         <div class="background">
-          <img src="media/image/ZLu7E1D0DH8.jpg">
+          <img src="media/image/office.jpg">
         </div>
-        <!-- <a href="#user"><img class="circle" src="image/cloud.jpg"></a> -->
-        <a href="#name"><span class="white-text name">{{ user.first_name }} {{ user.last_name }}</span></a>
-        <a href="#email"><span class="white-text email">{{ user.email }}</span></a>
+        <a href="{% url 'user' %}"><img class="circle" src="{{ user.userprofile.profile_image.url }}"></a>
+        <a><span class="white-text name">{{ user.first_name }} {{ user.last_name }}</span></a>
+        <a><span class="white-text email">{{ user.username }}</span></a>
       </div></li>
       <li><a href="{% url 'add_item' %}"><i class="material-icons">shopping_cart</i>Добавить товар</a></li>
       <li><a href="{% url 'user' %}"><i class="material-icons">folder</i>Мои товары</a></li>

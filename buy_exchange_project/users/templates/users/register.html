@@ -2,9 +2,10 @@
 {% block content %}
     <h1><b>Регистрация</b></h1>
     <h5>Пожалуйста, заполните форму:</h5>
-    <form action="" method="post">
-        {{ form.as_p }}
+    <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        {{ image.as_p }}
+        {{ form.as_p }}
         <p><input class="btn waves-effect waves-light" type="submit" value="Зарегистрироваться"></p>
     </form>
 {% endblock %}
