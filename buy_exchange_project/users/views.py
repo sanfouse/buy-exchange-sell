@@ -4,7 +4,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect, render
 from django.views import View
 from django.views.generic import ListView
-
+from django.contrib.auth.models import User
 from .forms import ProfileUserForm
 
 from .forms import UserRegistrationForm
@@ -34,7 +34,17 @@ class LogOutView(LoginRequiredMixin, LogoutView):
       pass
       
 
-class UserAdvert(LoginRequiredMixin, ListView):
+class UserAdvert(ListView):
       template_name = 'users/useradvert_list.html'
       def get_queryset(self):
             return Advert.objects.filter(user=self.request.user)
+
+class DetailUserView(View):
+      def get(self, request, pk):
+            user = User.objects.get(id=pk)
+            return render(request, 'users/useradvert_list.html', {
+                              'user': user,
+                              'advert_list': Advert.objects.filter(user=user)
+                        }
+                  )
+
