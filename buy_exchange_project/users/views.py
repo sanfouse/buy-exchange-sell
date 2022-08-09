@@ -34,10 +34,10 @@ class LogOutView(LoginRequiredMixin, LogoutView):
       pass
       
 
-class UserAdvert(ListView):
-      template_name = 'users/useradvert_list.html'
-      def get_queryset(self):
-            return Advert.objects.filter(user=self.request.user)
+# class UserAdvert(ListView):
+#       template_name = 'users/useradvert_list.html'
+#       def get_queryset(self):
+#             return Advert.objects.filter(user=self.request.user)
 
 class DetailUserView(View):
       def get(self, request, pk):

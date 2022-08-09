@@ -32,12 +32,12 @@
         <div class="background">
           <img src="media/image/office.jpg">
         </div>
-        <a href="{% url 'user' %}"><img class="circle" src="{{ user.userprofile.profile_image.url }}"></a>
+        <a href="{% url 'user_id' user.id %}"><img class="circle" src="{{ user.userprofile.profile_image.url }}"></a>
         <a><span class="white-text name">{{ user.first_name }} {{ user.last_name }}</span></a>
         <a><span class="white-text email">{{ user.username }}</span></a>
       </div></li>
       <li><a href="{% url 'add_item' %}"><i class="material-icons">shopping_cart</i>Добавить товар</a></li>
-      <li><a href="{% url 'user' %}"><i class="material-icons">folder</i>Мои товары</a></li>
+      <li><a href="{% url 'user_id' user.id %}"><i class="material-icons">folder</i>Мои товары</a></li>
       <li><div class="divider"></div></li>
       <li><a class="subheader">Аккаунт</a></li>
       <li><a class="waves-effect" href="{% url 'log_out' %}"><i class="material-icons">exit_to_app</i>Выйти</a></li>
